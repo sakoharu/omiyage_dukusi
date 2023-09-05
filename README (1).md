@@ -29,7 +29,8 @@
 
 ## 設計書
 
- *後ほど作成予定
+##実装機能リスト
+https://docs.google.com/spreadsheets/d/1jCShDsVBSrYhyBm35N8Z39y9I0lqQCsfk2W4zI_U0Ts/edit?usp=sharing
  
 ## 開発環境
 - OS：Linux(CentOS)
@@ -39,9 +40,5 @@
 - IDE：Cloud9
 ​
 ## 使用素材
- *未定
-- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
-- アプリケーションの実装に使用したgem/bootstrapのリファレンスなどの記載は不要です。
-- 使用しない場合は、使用素材の項目をREADMEから削除してください。
-
+ 
 
