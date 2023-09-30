@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 # 顧客用
 scope module: :public do
  #root 'homes#top'
-  #get '/' => 'homes#top'
+  get '/' => 'homes#top'
   get 'souvenirs/search_area' => 'souvenir#search_area'
   get 'souvenirs/search_genre' => 'souvenir#search_genre'
   get 'souvenirs' => 'souvenirs#index'
