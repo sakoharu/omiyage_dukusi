@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
 # 顧客用
 scope module: :public do
- #root 'homes#top'
+  root 'homes#top'
   get '/' => 'homes#top'
   resources :souvenirs, only: %i(index new create show) do
     collection do
@@ -11,7 +11,8 @@ scope module: :public do
     end
   end
   
-  resources :souvenirs, only: %i(show edit update destroy) 
+  resources :customers, only: %i(show edit update destroy) 
+  resources :favorites, only: %i(index create destroy) 
 end
 
  devise_for :customers, skip: [:passwords], controllers: {
