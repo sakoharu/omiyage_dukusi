@@ -14,6 +14,9 @@ class Public::SouvenirsController < ApplicationController
   end
 
   def create
+    posts = Post.new(post_params)
+    posts.save
+    redirect_to souvenirs
   end
 
   def show
