@@ -10,12 +10,12 @@ class Public::SouvenirsController < ApplicationController
   end
 
   def new
-    @posts = Post.new
+    @souvenir = Souvenir.new
   end
 
   def create
-    posts = Post.new(post_params)
-    posts.save
+    @souvenir = current_customer.souvenirs.new(souvenir_params)
+    @souvenir.save
     redirect_to souvenirs_path
   end
 
@@ -25,7 +25,7 @@ class Public::SouvenirsController < ApplicationController
 
   private
 
-  def post_params
-    params.require(:post).permit(:title, :body, :image)
+  def souvenir_params
+    params.require(:souvenir).permit(:item_name, :store_name, :image)
   end
 end

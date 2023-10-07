@@ -1,6 +1,6 @@
-class CreatePosts < ActiveRecord::Migration[6.1]
+class CreateSouvenirs < ActiveRecord::Migration[6.1]
   def change
-    create_table :posts do |t|
+    create_table :souvenirs do |t|
 
       t.integer:customer_id, null: false
       t.string :item_name, null: false
@@ -13,3 +13,5 @@ class CreatePosts < ActiveRecord::Migration[6.1]
     end
   end
 end
+
+   

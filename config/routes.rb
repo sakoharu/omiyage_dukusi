@@ -4,9 +4,8 @@ Rails.application.routes.draw do
 scope module: :public do
   root 'homes#top'
   get '/' => 'homes#top'
-  post '/souvenirs/new' => 'souvenirs#new'
-  get '/souvenirs', to: 'souvenirs#index'
-  resources :souvenirs, only: %i(new create show) do
+  #get '/souvenirs' => '/souvenirs#new'
+  resources :souvenirs, only: %i(index new create show) do
     collection do
       get :search_area
       get :search_genre
