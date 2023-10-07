@@ -10,7 +10,7 @@ class Public::SouvenirsController < ApplicationController
   end
 
   def new
-    @post = Post.new
+    @posts = Post.new
   end
 
   def create

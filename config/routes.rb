@@ -4,15 +4,16 @@ Rails.application.routes.draw do
 scope module: :public do
   root 'homes#top'
   get '/' => 'homes#top'
+  post '/souvenirs' => '/souvenirs#new'
   resources :souvenirs, only: %i(index new create show) do
     collection do
       get :search_area
       get :search_genre
     end
   end
-  
-  resource :customer, only: %i(show edit update destroy) 
-  resources :favorites, only: %i(index create destroy) 
+
+  resource :customer, only: %i(show edit update destroy)
+  resources :favorites, only: %i(index create destroy)
 end
 
  devise_for :customers, skip: [:passwords], controllers: {
