@@ -1,20 +1,22 @@
-<h4>投稿ページ</h4>
+<h3>投稿ページ</h3>
 
 <%= form_with model: @post do |f| %>
 
  <h4>商品名</h4>
  <%= f.text_field :title %>
- 
+
  <h4>商品写真</h4>
- 
+
  <h4>商品説明</h4>
  <%= f.text_area :body %>
- 
+
  <h4>店名または駅名</h4>
  <%= f.text_field :title %>
- 
+
  <h4>県名</h4>
- <%= f.text_field :title %>
+ <%= f.text_field :title %> <br>
+
+ <%= f.submit '投稿'%>
 <% end %>
 
 
