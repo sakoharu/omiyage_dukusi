@@ -26,6 +26,6 @@ class Public::SouvenirsController < ApplicationController
   private
 
   def souvenir_params
-    params.require(:souvenir).permit(:item_name, :store_name, :image)
+    params.require(:souvenir).permit(:item_name, :body, :price, :prefecture_id, :genre_id, :image)
   end
 end
