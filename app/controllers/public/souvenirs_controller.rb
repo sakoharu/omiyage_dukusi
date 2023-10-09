@@ -7,6 +7,7 @@ class Public::SouvenirsController < ApplicationController
   end
 
   def index
+     @souvenir = Souvenir.all
   end
 
   def new
