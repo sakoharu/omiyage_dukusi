@@ -2,13 +2,11 @@
 
 <%= form_with model: @souvenir do |f| %>
 
-
+<h3>まず初めに県を選択してください</h3>
  <div>
-  <h5>北海道地方</h5>
   <%= f.collection_radio_buttons(:prefecture_id, Prefecture.where(region: 0), :id, :name) %>
  </div>
  <div>
-  <h5>東北地方</h5>
   <%= f.collection_radio_buttons(:prefecture_id, Prefecture.where(region: 1), :id, :name, include_hidden: false) %>
  </div>
  <div>
@@ -32,7 +30,7 @@
  <div>
   <%= f.collection_radio_buttons(:prefecture_id, Prefecture.where(region: 8), :id, :name, include_hidden: false) %>
  </div>
-
+ 
  <h4>商品名</h4>
  <%= f.text_field :item_name %>
 
