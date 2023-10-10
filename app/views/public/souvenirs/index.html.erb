@@ -1,2 +1,7 @@
-おみやげ一覧
+<h3>おみやげ一覧</h3>
 
+<%= @souvernir = each do |souvernir| %>
+ <tr>
+     <tb><%= souvernir.picture %></tb>
+ </tr>
+<% end %>
