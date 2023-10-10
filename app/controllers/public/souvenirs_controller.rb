@@ -7,7 +7,7 @@ class Public::SouvenirsController < ApplicationController
   end
 
   def index
-    @souvenir = Souvenir.find(params[:souvenir_id])
+    @souvenir = Souvenir.all
   end
 
   def new

@@ -1,7 +1,10 @@
 <h3>おみやげ一覧</h3>
 
-<%= @souvernir = each do |souvernir| %>
+<% @souvenir.each do |souvenir| %>
  <tr>
-     <tb><%= souvernir.picture %></tb>
+     <tb><%= image_tag souvenir.get_image %></tb>
+ </tr>
+ <tr>
+  <%= item_name %>
  </tr>
 <% end %>
