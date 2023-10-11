@@ -2,7 +2,7 @@
 
 <% @souvenir.each do |souvenir| %>
  <tr>
-     <tb><%= image_tag souvenir.get_image %></tb>
+    <tb><%= image_tag souvenir.image, size: "200x200" %></tb>
  </tr>
  <tr>
   <%= souvenir.item_name %>
