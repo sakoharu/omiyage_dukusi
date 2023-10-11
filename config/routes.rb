@@ -12,7 +12,7 @@ scope module: :public do
     end
   end
 
-  resource :customer, only: %i(show edit update destroy)
+  resource :customers, only: %i(show edit update destroy)
   resources :favorites, only: %i(index create destroy)
 end
 
