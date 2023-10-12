@@ -2,6 +2,7 @@ class Souvenir < ApplicationRecord
    has_one_attached :image
    belongs_to :customer
    belongs_to :prefecture
+   has_many :comments
    
    def get_image
     unless image.attached?
