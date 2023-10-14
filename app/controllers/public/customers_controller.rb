@@ -1,7 +1,8 @@
 class Public::CustomersController < ApplicationController
 
   def show
-    @customer = current_customer.name
+    @customer = Customer.find(params[:id])
+
   end
 
   def edit
@@ -11,6 +12,9 @@ class Public::CustomersController < ApplicationController
   end
 
   def destroy
+  end
+  
+  def index
   end
 
 end
