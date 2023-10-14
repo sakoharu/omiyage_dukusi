@@ -2,6 +2,7 @@ class Public::CustomersController < ApplicationController
 
   def show
     @customer = Customer.find(params[:id])
+    @souvenir = Souvenir.find(params[:id])
 
   end
 

@@ -1,8 +1,13 @@
 マイページ
 
 <div>
-  <%= @customer.name %>
+ <p> 名前<%= @customer.name %></p></br>
+ <p>メールアドレス<%= @customer.email %></p>
 </div>
+
 <div>
-  <%= @customer.email %>
+ <p><%= image_tag @souvenir.image, size: "200x200" %></p>
+ <p><%= @souvenir.item_name %></p>
+ <p> ¥<%= @souvenir.price %></p>
+ <p><%= @souvenir.body %></p>
 </div>
