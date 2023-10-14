@@ -1,9 +1,11 @@
 <h3>おみやげ一覧</h3>
 
 <% @souvenir.each do |souvenir| %>
+<%= link_to souvenir_path(souvenir.id) do %>
  <tr>
     <tb><%= image_tag souvenir.image, size: "200x200" %></tb>
  </tr>
+ <% end %>
  <tr>
   <%= souvenir.item_name %>
  </tr>
