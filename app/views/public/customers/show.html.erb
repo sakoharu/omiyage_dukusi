@@ -5,9 +5,13 @@
  <p>メールアドレス<%= @customer.email %></p>
 </div>
 
+<p><%= link_to "編集",edit_customer_path(current_customer.id) %></p>
+
 <div>
  <p><%= image_tag @souvenir.image, size: "200x200" %></p>
  <p><%= @souvenir.item_name %></p>
  <p> ¥<%= @souvenir.price %></p>
  <p><%= @souvenir.body %></p>
 </div>
+
+<p></p>
