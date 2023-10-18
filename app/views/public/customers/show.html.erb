@@ -7,7 +7,7 @@
 
 <p><%= link_to "編集",edit_customer_path(current_customer.id) %></p>
 
-<% @souvenir.each do |souvenir| %>
+<% @souvenirs.each do |souvenir| %>
 <%= link_to souvenir_path(souvenir.id) do %>
  <tr>
     <tb><%= image_tag souvenir.image, size: "200x200" %></tb>
@@ -23,6 +23,6 @@
    <%= souvenir.body %>
  </tr>
  
- <p><%= link_to "編集",edit_souvenir_path %></p>
+ <p><%= link_to "編集",edit_souvenir_path(souvenir.id) %></p>
 
 <% end %>
