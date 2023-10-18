@@ -12,15 +12,17 @@
  <tr>
     <tb><%= image_tag souvenir.image, size: "200x200" %></tb>
  </tr>
- <% end %>
+<% end %>
  <tr>
-  <%= souvenir.item_name %>
+   <%= souvenir.item_name %>
  </tr>
  <tr>
-  ¥<%= souvenir.price %>
+   ¥<%= souvenir.price %>
  </tr>
  <tr>
-  <%= souvenir.body %>
+   <%= souvenir.body %>
  </tr>
+ 
+ <p><%= link_to "編集",edit_souvenir_path %></p>
 
 <% end %>
