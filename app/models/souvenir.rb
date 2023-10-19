@@ -3,7 +3,13 @@ class Souvenir < ApplicationRecord
    belongs_to :customer
    belongs_to :prefecture
    has_many :comments
+   has_many :favorites, dependent: :destroy
    
+   
+  def favorite_by?(customer)
+    favorites.exists?(customer_id: customer.id)
+  end
+  
    def get_image
     unless image.attached?
       file_path = Rails.root.join('app/assets/images/default-image.jpg')

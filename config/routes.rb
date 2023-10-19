@@ -5,6 +5,10 @@ scope module: :public do
   root 'homes#top'
   get '/' => 'homes#top'
 
+devise_for :customers, skip: [:passwords], controllers: {
+    registrations: "public/registrations",
+    sessions: 'public/sessions'
+}
   resources :souvenirs, only: %i(index new create destroy show edit update ) do
     collection do
       get :search_area
@@ -17,10 +21,7 @@ scope module: :public do
   resources :favorites, only: %i(index create destroy)
 end
 
- devise_for :customers, skip: [:passwords], controllers: {
-    registrations: "public/registrations",
-    sessions: 'public/sessions'
-}
+ 
 
 
 
