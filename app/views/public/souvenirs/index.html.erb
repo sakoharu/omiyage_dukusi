@@ -17,3 +17,17 @@
  </tr>
 
 <% end %>
+
+<% if @souvenir.favorited_by?(current_customer) %>
+ <p>
+  <%=link_to favorites_path(@souvenir), method: :delete do %>
+   ♥<%= @souvenir.favorites.count %> いいね
+  <% end %>
+ </p>
+<% else %>
+ <p>
+  <%=link_to favorites_path(@souvenir),method: :post do %>
+   ♥<%= @souvenir.favorites.count %> いいね
+  <% end %>
+ </p>
+<% end %>

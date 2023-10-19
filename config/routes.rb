@@ -18,7 +18,7 @@ devise_for :customers, skip: [:passwords], controllers: {
 
 
   resources :customers, only: %i(show edit update destroy)
-  resources :favorites, only: %i(index create destroy)
+  resource :favorites, only: %i(index create destroy)
 end
 
  
