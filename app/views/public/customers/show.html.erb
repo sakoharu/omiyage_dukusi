@@ -22,7 +22,8 @@
  <tr>
    <%= souvenir.body %>
  </tr>
- 
+
  <p><%= link_to "編集",edit_souvenir_path(souvenir.id) %></p>
+ <p><%= link_to "削除",souvenir_path(souvenir.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></p>
 
 <% end %>
