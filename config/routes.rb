@@ -10,6 +10,7 @@ devise_for :customers, skip: [:passwords], controllers: {
     sessions: 'public/sessions'
 }
   resources :souvenirs, only: %i(index new create destroy show edit update ) do
+    resources :comments, only: %i(create destroy)
     collection do
       get :search_area
       get :search_genre

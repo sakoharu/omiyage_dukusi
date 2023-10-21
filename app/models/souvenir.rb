@@ -2,7 +2,7 @@ class Souvenir < ApplicationRecord
    has_one_attached :image
    belongs_to :customer
    belongs_to :prefecture
-   has_many :comments
+   has_many :comments, dependent: :destroy
    has_many :favorites, dependent: :destroy
    
    

@@ -1,6 +1,6 @@
 class Public::FavoritesController < ApplicationController
 
- 
+
   def create
     souvenir = Souvenir.find(params[:sourvenir_id])
     favorite = current_customer.favorites.new(souvenir_id: souvenir.id)
