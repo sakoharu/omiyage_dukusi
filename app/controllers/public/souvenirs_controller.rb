@@ -22,6 +22,7 @@ class Public::SouvenirsController < ApplicationController
 
   def show
     @souvenir = Souvenir.find(params[:id])
+    @post = Post.new
   end
 
   def edit

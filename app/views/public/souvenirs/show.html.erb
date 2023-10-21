@@ -4,3 +4,18 @@
 <p><%= @souvenir.item_name %></p>
 <p> ¥<%= @souvenir.price %></p>
 <p><%= @souvenir.body %></p>
+
+<div>
+  <% @souvenir.post.each do |comment| %>
+    <p><%= souvenir comment.customer.get_profile_image(100,100) %></p>
+    <%= comment.customer.name %>
+    <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
+  <% end %>
+</div>
+
+<div>
+  <%= form_with model: [@souvenir, @souvenir_comment] do |f| %>
+    <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
+    <%= f.submit "送信する" %>
+  <% end %>
+</div>

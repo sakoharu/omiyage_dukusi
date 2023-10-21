@@ -1,5 +1,5 @@
 class Comment < ApplicationRecord
 
-  belomgs_to :souvenir
-  belomgs_to :customer
+  belongs_to :souvenir
+  belongs_to :customer
 end
