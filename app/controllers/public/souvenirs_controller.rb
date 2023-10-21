@@ -22,7 +22,8 @@ class Public::SouvenirsController < ApplicationController
 
   def show
     @souvenir = Souvenir.find(params[:id])
-    @post = Post.new
+    @comment = Comment.new
+    @customer = current_customer
   end
 
   def edit

@@ -6,16 +6,22 @@
 <p><%= @souvenir.body %></p>
 
 <div>
-  <% @souvenir.post.each do |comment| %>
-    <p><%= souvenir comment.customer.get_profile_image(100,100) %></p>
+  <% if @souvenir.comments.present? %>
+   <p>コメント件数：<%= @souvenir.comments.count %></p>
+  <% else %>
+   <p>コメントはまだありません.</p>
+  <% end %>
+  <% @souvenir.comments.each do |comment| %>
+    <p><%= image_tag comment.customer.get_profile_image %></p>
     <%= comment.customer.name %>
     <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
   <% end %>
 </div>
-
 <div>
-  <%= form_with model: [@souvenir, @souvenir_comment] do |f| %>
+  <%= form_with model: [@souvenir, @comment] do |f| %>
     <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
+    <%= f.hidden_field :souvenir_id, :value => @souvenir.id %>
+    <%= f.hidden_field :customer_id, :value => @customer.id %>
     <%= f.submit "送信する" %>
   <% end %>
 </div>
