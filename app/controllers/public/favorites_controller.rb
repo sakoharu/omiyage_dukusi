@@ -1,7 +1,13 @@
 class Public::FavoritesController < ApplicationController
 
+
+  def souvenir
+    @souvenir = Souvenir.find(params[:souvenir_id])
+  end
+  
   def index
   end
+  
 
   def create
     souvenir = Souvenir.find(params[:souvenir_id])
@@ -17,10 +23,6 @@ class Public::FavoritesController < ApplicationController
     redirect_to souvenirs_path(souvenir)
   end
 
-  private
-  def souvenir
-    @souvenir = Souvenir.find(params[:souvenir_id])
-
-  end
+ 
 
 end
