@@ -8,6 +8,10 @@ class Public::CommentsController < ApplicationController
   end
 
   def destroy
+    souvenir = Souvenir.find(params[:souvenir_id])
+    comment = Comment.find(params[:id])
+    comment.destroy
+    redirect_to souvenir_path(souvenir.id)
   end
 
   private

@@ -16,7 +16,7 @@
     <%= comment.customer.name %>
     <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
     <% if comment.customer == current_customer %>
-     <%= link_to "削除", souvenir_path(comment.customer.name), method: :delete %>
+     <%= link_to "削除", souvenir_comment_path(souvenir_id: @souvenir.id, id: comment.id), method: :delete %>
     <% end %>
   <% end %>
 </div>

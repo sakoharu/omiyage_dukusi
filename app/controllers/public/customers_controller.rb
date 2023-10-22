@@ -21,6 +21,10 @@ class Public::CustomersController < ApplicationController
 
   def index
   end
+  
+  def favorites
+  end
+  
 
   private
   def customer_params
