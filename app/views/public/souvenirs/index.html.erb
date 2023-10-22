@@ -18,13 +18,13 @@
 <% if souvenir.favorited_by?(current_customer) %>
  <p>
   <%=link_to favorites_path(sourvenir_id: souvenir), method: :delete do %>
-   ♥<%= souvenir.favorites.count %> いいね
+   ♥<%= souvenir.favorites.count %> お気に入り
   <% end %>
  </p>
 <% else %>
  <p>
   <%=link_to favorites_path(sourvenir_id: souvenir), method: :post do %>
-   ♥<%= souvenir.favorites.count %> いいね
+   ♥<%= souvenir.favorites.count %> お気に入り
   <% end %>
  </p>
  
