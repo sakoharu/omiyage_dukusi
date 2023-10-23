@@ -10,6 +10,7 @@ devise_for :customers, skip: [:passwords], controllers: {
     sessions: 'public/sessions'
 }
   resources :souvenirs, only: %i(index new create destroy show edit update ) do
+
     resources :comments, only: %i(create destroy)
     collection do
       get :search_area
@@ -19,7 +20,9 @@ devise_for :customers, skip: [:passwords], controllers: {
 
   resource :favorites, only: %i( create destroy )
   get 'customers/favorites' => 'customers#favorites'
-  resources :customers, only: %i(show edit update destroy)
+  resources :customers, only: %i(show edit update destroy) 
+ 
+
 end
 
 

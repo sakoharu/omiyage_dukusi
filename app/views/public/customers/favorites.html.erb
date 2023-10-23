@@ -1,1 +1,8 @@
-お気に入り一覧
+<h1>お気に入り一覧</h1>
+
+<% @favorite_souvenir.each do |souvenir| %>
+  <%= image_tag souvenir.image, size: "200x200" %>
+  <%= souvenir.prefecture_id %>
+  <%= souvenir.item_name %>
+  <%= souvenir.body %>
+<% end %>

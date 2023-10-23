@@ -23,7 +23,7 @@ class Public::CustomersController < ApplicationController
   end
   
   def favorites
-    favorites = Favorite.where(customer_id: @customer.id).pluck(:souvenir_id)
+    favorites = Favorite.where(customer_id: current_customer.id).pluck(:souvenir_id)
     @favorite_souvenir = Souvenir.find(favorites)
   end
   
