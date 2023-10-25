@@ -6,7 +6,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
@@ -18,7 +18,7 @@
         </li>
       <% elsif customer_signed_in? %>
 
-          <%= link_to "おみやげ検索", search_area_souvenirs_path %>
+          <%= link_to "おみやげ検索", search_area_souvenirs_path, class: "btn btn-danger" %>
 
           <%= link_to "おみやげ一覧", souvenirs_path %>
 
