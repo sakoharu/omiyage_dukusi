@@ -6,7 +6,10 @@
   検索結果がありませんでした
 <% else %>
  <% @souvenirs.each do |souvenir| %>
+   <div><%= image_tag souvenir.image, size: "200x200" %></div>
    <div><%= souvenir.item_name %></div>
+   <div><%= souvenir.body %></div>
+   <div><%= souvenir.price %></div>
   <% if souvenir.favorited_by?(current_customer) %>
    <p>
     <%=link_to favorites_path(sourvenir_id: souvenir, search_prefecture_id: params[:prefecture_id]), method: :delete do %>
