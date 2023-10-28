@@ -3,7 +3,7 @@
 <% @souvenirs.each do |souvenir| %>
 <%= link_to souvenir_path(souvenir.id) do %>
  <tr>
-    <tb><%= image_tag souvenir.image, size: "200x200" %></tb>
+    <tb><%= image_tag souvenir.get_image, size: "200x200" %></tb>
  </tr>
  <% end %>
  <tr>
@@ -27,7 +27,6 @@
    ♥<%= souvenir.favorites.count %> お気に入り
   <% end %>
  </p>
- 
 <% end %>
 
 <% end %>

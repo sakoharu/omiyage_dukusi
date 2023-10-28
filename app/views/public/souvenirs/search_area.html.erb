@@ -1,3 +1,27 @@
+<h2>お土産検索</h2>
+ <p>都道府県を選択してください</p>
+
+
+<% if @souvenirs.length.zero? %>
+  検索結果がありませんでした
+<% else %>
+ <% @souvenirs.each do |souvenir| %>
+   <div><%= souvenir.item_name %></div>
+  <% if souvenir.favorited_by?(current_customer) %>
+   <p>
+    <%=link_to favorites_path(sourvenir_id: souvenir, search_prefecture_id: params[:prefecture_id]), method: :delete do %>
+     ♥<%= souvenir.favorites.count %> お気に入り
+    <% end %>
+   </p>
+  <% else %>
+   <p>
+    <%=link_to favorites_path(sourvenir_id: souvenir, search_prefecture_id: params[:prefecture_id]), method: :post do %>
+     ♥<%= souvenir.favorites.count %> お気に入り
+    <% end %>
+   </p>
+  <% end %>
+ <% end %>
+<% end %>
 
 
 <div class="container">

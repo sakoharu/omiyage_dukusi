@@ -1,6 +1,7 @@
 class Public::SouvenirsController < ApplicationController
 
   def search_area
+    @souvenirs = Souvenir.where(prefecture_id: params[:prefecture_id])
   end
 
   def search_genre
