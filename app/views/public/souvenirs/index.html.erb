@@ -7,13 +7,13 @@
  </tr>
  <% end %>
  <tr>
-  <%= souvenir.item_name %>
+ 商品名 <%= souvenir.item_name %>
  </tr>
  <tr>
   ¥<%= souvenir.price %>
  </tr>
  <tr>
-  <%= souvenir.body %>
+  コメント<%= souvenir.body %>
  </tr>
 <% if souvenir.favorited_by?(current_customer) %>
  <p>
