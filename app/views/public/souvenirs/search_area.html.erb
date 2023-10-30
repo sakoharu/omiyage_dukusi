@@ -6,7 +6,11 @@
   検索結果がありませんでした
 <% else %>
  <% @souvenirs.each do |souvenir| %>
-   <div><%= image_tag souvenir.image, size: "200x200" %></div>
+ <%= link_to souvenir_path(souvenir.id) do %>
+ <tr>
+    <tb><%= image_tag souvenir.get_image, size: "200x200" %></tb>
+ </tr>
+ <% end %>
    <div><%= souvenir.item_name %></div>
    <div><%= souvenir.body %></div>
    <div><%= souvenir.price %></div>
