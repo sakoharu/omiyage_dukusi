@@ -2,7 +2,7 @@
 
 <%= form_with model: @souvenir do |f| %>
 
-<h3>都道府県を選択してください</h3>
+<h3>都道府県県を選択してください</h3>
  <div>
   <%= f.collection_radio_buttons(:prefecture_id, Prefecture.where(region: 0), :id, :name) %>
  </div>
