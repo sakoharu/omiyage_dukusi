@@ -21,12 +21,12 @@ class Public::CustomersController < ApplicationController
 
   def index
   end
-  
+
   def favorites
     favorites = Favorite.where(customer_id: current_customer.id).pluck(:souvenir_id)
-    @favorite_souvenir = Souvenir.find(favorites)
+    @favorite_souvenir = Souvenir.where(id: favorites)
   end
-  
+
 
   private
   def customer_params
