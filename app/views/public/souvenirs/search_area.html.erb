@@ -1,16 +1,14 @@
 <h2>お土産検索</h2>
- <p>都道府県を選択してください</p>
 
+ <p>都道府県を選択してください</p>
 
 <% if @souvenirs.length.zero? %>
   検索結果がありませんでした
 <% else %>
  <% @souvenirs.each do |souvenir| %>
- <%= link_to souvenir_path(souvenir.id) do %>
- <tr>
-    <tb><%= image_tag souvenir.get_image, size: "200x200" %></tb>
- </tr>
- <% end %>
+  <%= link_to souvenir_path(souvenir.id) do %>
+   <div><%= image_tag souvenir.image, size: "200x200" %></div>
+  <% end %>
    <div><%= souvenir.item_name %></div>
    <div><%= souvenir.body %></div>
    <div><%= souvenir.price %></div>

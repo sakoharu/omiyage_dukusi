@@ -2,10 +2,11 @@ class Public::SouvenirsController < ApplicationController
 
   def search_area
     @souvenirs = Souvenir.where(prefecture_id: params[:prefecture_id])
+    
   end
 
   def search_genre
-    @souvenirs = params[:souvenir]
+     @souvenirs = params[:souvenir]
 
     if @souvenirs == "Souvenir"
       @souvenirs = Souvenir.looks(params[:search], params[:word])
