@@ -5,6 +5,12 @@ class Public::SouvenirsController < ApplicationController
   end
 
   def search_genre
+    @souvenirs = params[:souvenir]
+    
+    if @souvenirs == "Souvenir"
+      @souvenirs = Souvenir.looks(params[:search], params[:word])
+    end
+
   end
 
   def index
