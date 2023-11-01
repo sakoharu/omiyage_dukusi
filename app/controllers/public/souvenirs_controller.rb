@@ -6,11 +6,24 @@ class Public::SouvenirsController < ApplicationController
 
   def search_genre
     @souvenirs = params[:souvenir]
-    
+
     if @souvenirs == "Souvenir"
       @souvenirs = Souvenir.looks(params[:search], params[:word])
     end
+  end
 
+  def self.looks(search, word)
+    if search == "perfect_match"
+      @souvenirs = Souvenirs.where("item_name LIKE?","#{word}")
+    elsif search == "forward_match"
+      @souvenirs = Souvenirs.where("item_name LIKE?","#{word}")
+    elsif search == "backward_match"
+      @souvenirs = Souvenirs.where("item_name LIKE?","#{word}")
+    elsif search == "partial_match"
+      @souvenirs = Souvenirs.where("item_name LIKE?","#{word}")
+    else
+      @souvenirs = all
+    end
   end
 
   def index
