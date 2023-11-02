@@ -1,12 +1,16 @@
  <table class="table table-hover table-inverse">
 
-  <% if @souvenirs == "Souvenirs" %>
+
     <tbody>
       <% @souvenirs.each do |souvenir| %>
         <tr>
-          <td><%= souveni.item_name %></td>
+          <td><%= image_tag souvenir.image, size: "200x200" %></td>
+          <td><%= souvenir.item_name %></td>
+          <td>¥<%= souvenir.price %></td>
+          <td><%= souvenir.body %></td>
         </tr>
       <% end %>
     </tbody>
-    
+
+
 </table>
