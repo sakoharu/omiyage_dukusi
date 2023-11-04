@@ -1,9 +1,9 @@
 お土産詳細ページ
 
 <p><%= image_tag @souvenir.image, size: "200x200" %></p>
-<p><%= @souvenir.item_name %></p>
+<p>商品名<%= @souvenir.item_name %></p>
 <p> ¥<%= @souvenir.price %></p>
-<p><%= @souvenir.body %></p>
+<p>コメント<%= @souvenir.body %></p>
 
 <div>
   <% if @souvenir.comments.present? %>
