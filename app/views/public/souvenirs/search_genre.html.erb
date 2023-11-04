@@ -1,16 +1,33 @@
  <table class="table table-hover table-inverse">
 
 
-    <tbody>
-      <% @souvenirs.each do |souvenir| %>
-        <tr>
-          <td><%= image_tag souvenir.image, size: "200x200" %></td>
-          <td><%= souvenir.item_name %></td>
-          <td>¥<%= souvenir.price %></td>
-          <td><%= souvenir.body %></td>
-        </tr>
-      <% end %>
-    </tbody>
+    <% @souvenirs.each do |souvenir| %>
+<%= link_to souvenir_path(souvenir.id) do %>
+ <tr>
+    <tb><%= image_tag souvenir.get_image, size: "400x400" %></tb>
+ </tr>
+ <% end %>
+ <tr>
+ 商品名 <%= souvenir.item_name %>
+ </tr>
+ <tr>
+  ¥<%= souvenir.price %>
+ </tr>
+ <tr>
+  コメント<%= souvenir.body %>
+ </tr>
+<% if souvenir.favorited_by?(current_customer) %>
+ <p>
+  <%=link_to favorites_path(sourvenir_id: souvenir), method: :delete do %>
+   ♥<%= souvenir.favorites.count %> お気に入り
+  <% end %>
+ </p>
+<% else %>
+ <p>
+  <%=link_to favorites_path(sourvenir_id: souvenir), method: :post do %>
+   ♥<%= souvenir.favorites.count %> お気に入り
+  <% end %>
+ </p>
+<% end %>
 
-
-</table>
+<% end %>
