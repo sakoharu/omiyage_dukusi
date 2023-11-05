@@ -20,7 +20,9 @@ devise_for :customers, skip: [:passwords], controllers: {
 
   resource :favorites, only: %i( create destroy )
   get 'customers/favorites' => 'customers#favorites'
-  resources :customers, only: %i(show edit update destroy)
+  resources :customers, only: %i(show edit update destroy) do
+    get 'withdraw' => 'customers#withdraw'
+  end
 
 
 end
@@ -31,8 +33,8 @@ end
 
 # 管理者用
 namespace :admin do
-
-
+  get '/' => 'homes#top'
+  resources :customers, only: %i(show edit update destroy)
 end
 
   devise_for :admin, skip: [:registrations, :passwords], controllers: {

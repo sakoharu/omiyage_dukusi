@@ -27,6 +27,12 @@ class Public::CustomersController < ApplicationController
     @favorite_souvenir = Souvenir.where(id: favorites)
   end
 
+  def withdraw
+    customer = Customer.find(params[:customer_id])
+    customer.update(is_deleted: true)
+    flash[:notice] = "退会処理を実行いたしました"
+    redirect_to root_path
+  end
 
   private
   def customer_params
