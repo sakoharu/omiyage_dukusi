@@ -34,7 +34,7 @@ end
 # 管理者用
 namespace :admin do
   get '/' => 'homes#top'
-  resources :customers, only: %i(show edit update destroy)
+  resources :customers, only: %i(index show edit )
 end
 
   devise_for :admin, skip: [:registrations, :passwords], controllers: {
