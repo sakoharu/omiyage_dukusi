@@ -1,1 +1,6 @@
-aa
+<顧客一覧>
+
+<% @customers.each do |customer| %>
+<p> 名前<%= customer.name %></p></br>
+<p>メールアドレス<%= customer.email %></p>
+<% end %>
