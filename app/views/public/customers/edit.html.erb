@@ -1,17 +1,29 @@
-<h1>編集ページ</h1>
+<div class="container">
+  <div class="row my-3">
+    <div class="col-sm-8 px-sm-0 offset-sm-1">
+      <div class = "pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center"></div>
+       <h2>編集ページ</h2>
+    </div>
+  </div>
 
-<%= form_with model: @customer do |f| %>
- <div>
-  <label for="inputName">Name</label>
-   <%= f.text_field :name %>
- </div>
- <div>
-  <label for="email">email</label>
-   <%= f.text_field :email %>
- </div>
-
- <%= f.submit '変更' %>
-
-<% end %>
-
-<%= link_to "退会する", customer_withdraw_path(customer_id: @customer.id), method: :get, :class => "btn btn-danger ms-3", data: { confirm: "本当に退会しますか？" }  %>
+  <div class= "row">
+    <div class="col-5">
+      <div class= "field">
+        <%= form_with model: @customer do |f| %>
+          <div>
+            <label for="inputName">Name</label>
+            <%= f.text_field :name %>
+          </div>
+          <div>
+            <label for="email">email</label>
+            <%= f.text_field :email %>
+          </div>
+      </div>
+     <%= f.submit '変更' %>
+     <% end %>
+   </div>
+   <div class ="ml-3">
+     <%= link_to "退会する", customer_withdraw_path(customer_id: @customer.id), method: :get, :class => "btn btn-danger ms-3", data: { confirm: "本当に退会しますか？" }  %>
+   </div>
+  </div>
+</div>

@@ -1,8 +1,23 @@
-<h1>お気に入り一覧</h1>
-
-<% @favorite_souvenir.each do |souvenir| %>
-  <%= image_tag souvenir.image, size: "200x200" %>
-  <%= souvenir.prefecture_id %>
-  <%= souvenir.item_name %>
-  <%= souvenir.body %>
-<% end %>
+<div class="container">
+  <div class="row my-3">
+    <div class="col-sm-8 px-sm-0 offset-sm-1">
+      <div class = "pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center"></div>
+        <h2 >お気に入り一覧</h2>
+    </div>
+  </div>
+    
+      </div>
+     <div class= "row">
+       <% @favorite_souvenir.each do |souvenir| %>
+      <div class="col-3">
+       <div>
+           <%= image_tag souvenir.image, size: "200x200" %>
+           商品名<%= souvenir.item_name %>
+           コメント<%= souvenir.body %>
+         <% end %>
+       </div>
+      </div>
+     </div>
+    </div>
+  </div>
+</div>
