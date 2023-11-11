@@ -1,6 +1,20 @@
-<顧客一覧>
+<div class="container">
+  <div class="row my-3">
+    <div class="col-sm-8 px-sm-0 offset-sm-1">
+      <h2><顧客一覧></h2>
+    </div>
+  </div>
 
-<% @customers.each do |customer| %>
-<p> 名前<%= customer.name %></p></br>
-<p>メールアドレス<%= customer.email %></p>
+<div class="col-6">
+  <table class= "table">
+    <% @customers.each do |customer| %>
+    <tr>
+      <th> 名前</th>
+      <td><%= customer.name %></td>
+    </tr>
+    <tr>
+      <th>メールアドレス</th>
+      <td><%= customer.email %></td>
+    </tr>
 <% end %>
+</div>
