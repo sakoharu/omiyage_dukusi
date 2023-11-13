@@ -4,6 +4,7 @@
 
 
 <p><%= image_tag @souvenir.image, size: "200x200" %></p>
+<p>都道府県 <%= I18n.t("prefectures.#{@souvenir.prefecture.id}") %></p>
 <p>商品名<%= @souvenir.item_name %></p>
 <p> ¥<%= @souvenir.price %></p>
 <p>コメント<%= @souvenir.body %></p>

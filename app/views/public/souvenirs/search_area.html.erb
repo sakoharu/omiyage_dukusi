@@ -1,37 +1,36 @@
 <div class="p-3 mb-2 bg-primary text-white">
-   <h2>お土産検索</h2>
+  <h2>お土産検索</h2>
 </div>
 <div class="p-3 mb-2 bg-primary-subtle text-emphasis-primary">
-   <p>都道府県を選択してください</p>
+  <p>都道府県を選択してください</p>
 </div>
 
 <div class="container py-4" id="works">
-   <% if @souvenirs.length.zero? %>
-     検索結果がありませんでした
-   <% else %>
-   <% @souvenirs.each do |souvenir| %>
-   <%= link_to souvenir_path(souvenir.id) do %>
-  
-<div class="container py-4" id="works"><%= image_tag souvenir.image, size: "400x200" %></div>
-  <% end %>
-   <div>商品名<%= souvenir.item_name %></div>
-   <div>コメント<%= souvenir.body %></div>
-   <div>¥<%= souvenir.price %></div>
-  <% if souvenir.favorited_by?(current_customer) %>
-   <p>
-    <%=link_to favorites_path(sourvenir_id: souvenir, search_prefecture_id: params[:prefecture_id]), method: :delete do %>
-     ♥<%= souvenir.favorites.count %> お気に入り
-    <% end %>
-   </p>
+  <% if @souvenirs.length.zero? %>
+    検索結果がありませんでした
   <% else %>
-   <p>
-    <%=link_to favorites_path(sourvenir_id: souvenir, search_prefecture_id: params[:prefecture_id]), method: :post do %>
-     ♥<%= souvenir.favorites.count %> お気に入り
-    <% end %>
-   </p>
+    <% @souvenirs.each do |souvenir| %>
+      <%= link_to souvenir_path(souvenir.id) do %>
+        <div class="container py-4" id="works"><%= image_tag souvenir.image, size: "400x200" %></div>
+      <% end %>
+        <div>商品名<%= souvenir.item_name %></div>
+        <div>コメント<%= souvenir.body %></div>
+        <div>¥<%= souvenir.price %></div>
+      <% if souvenir.favorited_by?(current_customer) %>
+        <p>
+          <%=link_to favorites_path(sourvenir_id: souvenir, search_prefecture_id: params[:prefecture_id]), method: :delete do %>
+          ♥<%= souvenir.favorites.count %> お気に入り
+          <% end %>
+        </p>
+      <% else %>
+        <p>
+          <%=link_to favorites_path(sourvenir_id: souvenir, search_prefecture_id: params[:prefecture_id]), method: :post do %>
+          ♥<%= souvenir.favorites.count %> お気に入り
+        </p>
+          <% end %>
+       <% end %>
+     <% end %>
   <% end %>
- <% end %>
-<% end %>
 </div>
 
 <div class="container">

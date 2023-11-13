@@ -4,9 +4,12 @@
       <div class="card">
         <% @favorite_souvenir.each do |souvenir| %>
          <div class="card-body">
-           <h5 class="card-title"><%= image_tag souvenir.image, size: "300x200" %></h5>
+           <h5 class="card-title"><%= image_tag souvenir.image, size: "400x200" %></h5>
+           <p class="card-text">都道府県<%= I18n.t("prefectures.#{souvenir.prefecture.id}") %></p>
            <p class="card-text"> 商品名<%= souvenir.item_name %></p>
            <p class="card-text">コメント<%= souvenir.body %></p>
          </div>
         <% end %>
       </div>
+    </div>
+</div>
