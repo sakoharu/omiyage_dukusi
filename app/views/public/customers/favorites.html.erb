@@ -1,23 +1,12 @@
-<div class="container">
-  <div class="row my-3">
-    <div class="col-sm-8 px-sm-0 offset-sm-1">
-      <div class = "pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center"></div>
-        <h2 >お気に入り一覧</h2>
-    </div>
-  </div>
-    
+<div class="container py-4" id="works">
+  <h2 >お気に入り一覧</h2>
+    <div class="card-deck">
+      <div class="card">
+        <% @favorite_souvenir.each do |souvenir| %>
+         <div class="card-body">
+           <h5 class="card-title"><%= image_tag souvenir.image, size: "300x200" %></h5>
+           <p class="card-text"> 商品名<%= souvenir.item_name %></p>
+           <p class="card-text">コメント<%= souvenir.body %></p>
+         </div>
+        <% end %>
       </div>
-     <div class= "row">
-       <% @favorite_souvenir.each do |souvenir| %>
-      <div class="col-3">
-       <div>
-           <%= image_tag souvenir.image, size: "200x200" %>
-           商品名<%= souvenir.item_name %>
-           コメント<%= souvenir.body %>
-         <% end %>
-       </div>
-      </div>
-     </div>
-    </div>
-  </div>
-</div>
