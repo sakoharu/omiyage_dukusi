@@ -1,30 +1,36 @@
-<h1>マイページ</h1>
-
-<div>
-
- <p> 名前<%= @customer.name %></p></br>
- <p>メールアドレス<%= @customer.email %></p>
+<div class="p-3 mb-2 bg-primary text-white">
+  <h1>マイページ</h1>
 </div>
-
-<p><%= link_to "編集",edit_customer_path(current_customer.id) %></p>
-
-<% @souvenirs.each do |souvenir| %>
-<%= link_to souvenir_path(souvenir.id) do %>
- <tr>
-    <tb><%= image_tag souvenir.image, size: "200x200" %></tb>
- </tr>
-<% end %>
- <tr>
-   <%= souvenir.item_name %>
- </tr>
- <tr>
-   ¥<%= souvenir.price %>
- </tr>
- <tr>
-   <%= souvenir.body %>
- </tr>
-
- <p><%= link_to "編集",edit_souvenir_path(souvenir.id) %></p>
- <p><%= link_to "削除",souvenir_path(souvenir.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></p>
-
-<% end %>
+<div class="container py-4" id="works">
+  <b>名前</b>
+  <p><%= @customer.name %></p></br>
+  <b>メールアドレス</b>
+  <p><%= @customer.email %></p>
+</div>
+<div class="col">
+  <button type="button" class="button"><%= link_to "編集",edit_customer_path(current_customer.id) %></button>
+</div>
+<div class="container py-4" id="works">
+  <% @souvenirs.each do |souvenir| %>
+    <%= link_to souvenir_path(souvenir.id) do %>
+      <div class="container py-4" id="works"><%= image_tag souvenir.image, size: "400x200" %></div>
+    <% end %>
+      <div class="card-text"><%= I18n.t("prefectures.#{souvenir.prefecture.id}") %></div>
+      <div class="card-text">
+        <b>商品名</b>
+        <%= souvenir.item_name %>
+      </div>
+      <div class="card-text">
+        <b>￥</b>
+        <%= souvenir.price %>
+      </div>
+      <div class="card-text">
+        <b>コメント</b>
+        <%= souvenir.body %>
+      </div>
+ 
+      <button type="button" class="button"><%= link_to "編集",edit_souvenir_path(souvenir.id) %></button>
+      <button type="button" class="button"><%= link_to "削除",souvenir_path(souvenir.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></buttun>
+ 
+  <% end %>
+</div>
