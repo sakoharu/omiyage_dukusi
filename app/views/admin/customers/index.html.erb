@@ -5,16 +5,26 @@
     </div>
   </div>
 
-<div class="col-6">
+
+
+<thead class= "table-secondary">
   <table class= "table">
+    <tr>
+        <th>氏名</th>
+        <th>メールアドレス</th>
+        <th>ステータス</th>
+      </tr>
     <% @customers.each do |customer| %>
     <tr>
-      <th> 名前</th>
       <td><%= customer.name %></td>
-    </tr>
-    <tr>
-      <th>メールアドレス</th>
       <td><%= customer.email %></td>
+      <td>
+        <% if customer.is_deleted == false %>
+          <b> <font color="$teal-300">有効</font></b>
+         <% else %>
+           <p>退会</p>
+         <% end %>
+      </td>
     </tr>
 <% end %>
 </div>
