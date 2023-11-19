@@ -1,17 +1,24 @@
 <div class="p-3 mb-2 bg-info text-white">
   <h2 >お気に入り一覧</h2>
 </div>
+
 <div class="container py-4" id="works">
-  <div class="card-deck">
-    <div class="card">
-      <% @favorite_souvenir.each do |souvenir| %>
-        <div class="card-body">
-          <h5 class="card-title"><%= image_tag souvenir.image, size: "400x200" %></h5>
-          <p class="card-text"><%= I18n.t("prefectures.#{souvenir.prefecture.id}") %></p>
-          <p class="card-text"> 商品名<%= souvenir.item_name %></p>
-          <p class="card-text">コメント<%= souvenir.body %></p>
-        </div>
-      <% end %>
-    </div>
+  <div class="row">
+    <% @favorite_souvenir.each do |souvenir| %>
+      <div class="col-md-6">
+          <div>
+            <tb><%= image_tag souvenir.image, size: "400x200" %></tb>
+          </div>
+          <div>
+            <tb><%= I18n.t("prefectures.#{souvenir.prefecture.id}") %></tb>
+          </div>
+          <div>
+            <tb> 商品名<%= souvenir.item_name %></tb>
+          </div>
+          <div>
+            <tb>コメント<%= souvenir.body %></tb>
+          </div>
+      </div>
+    <% end %>
   </div>
 </div>

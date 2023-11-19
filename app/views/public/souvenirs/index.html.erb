@@ -3,37 +3,40 @@
 </div>
 
 <div class="container py-4" id="works">
-  <% @souvenirs.each do |souvenir| %>
-  <%= link_to souvenir_path(souvenir.id) do %>
-   <tr>
-     <tb><%= image_tag souvenir.get_image, size: "400x200" %></tb>
-   </tr>
-  <% end %>
-   <tr>
-    都道府県 <%= I18n.t("prefectures.#{souvenir.prefecture.id}") %>
-   </tr>
-   <tr>
-     商品名 <%= souvenir.item_name %>
-   </tr>
-   <tr>
-     ¥<%= souvenir.price %>
-   </tr>
-   <tr>
-     コメント<%= souvenir.body %>
-   </tr>
-  <% if souvenir.favorited_by?(current_customer) %>
-   <p>
-     <%=link_to favorites_path(sourvenir_id: souvenir), method: :delete do %>
-     ♥<%= souvenir.favorites.count %> お気に入り
-   </p>
-  <% end %>
-<% else %>
- <p>
-  <%=link_to favorites_path(sourvenir_id: souvenir), method: :post do %>
-   ♥<%= souvenir.favorites.count %> お気に入り
-  <% end %>
- </p>
-<% end %>
-
-<% end %>
+  <div class="row">
+    <% @souvenirs.each do |souvenir| %>
+      <div class="col-md-6 col-lg-4">
+        <%= link_to souvenir_path(souvenir.id) do %>
+         <div>
+           <tb><%= image_tag souvenir.get_image, size: "400x200" %></tb>
+         </div>
+        <% end %>
+         <div>
+          都道府県 <%= I18n.t("prefectures.#{souvenir.prefecture.id}") %>
+         </div>
+         <div>
+           商品名 <%= souvenir.item_name %>
+         </div>
+         <div>
+           ¥<%= souvenir.price %>
+         </div>
+         <div>
+           コメント<%= souvenir.body %>
+         </div>
+        <% if souvenir.favorited_by?(current_customer) %>
+         <p>
+           <%=link_to favorites_path(sourvenir_id: souvenir), method: :delete do %>
+           ♥<%= souvenir.favorites.count %> お気に入り
+           <% end %>
+         </p>
+        <% else %>
+       <p>
+        <%=link_to favorites_path(sourvenir_id: souvenir), method: :post do %>
+         ♥<%= souvenir.favorites.count %> お気に入り
+        <% end %>
+       </p>
+      <% end %>
+      </div>
+    <% end %>
+  </div>
 </div>
