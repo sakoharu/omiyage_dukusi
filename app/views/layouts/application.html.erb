@@ -12,47 +12,61 @@
 
   <body>
     <header>
-      <nav class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm pc navbar navbar-expand-lg">
+      <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
-          <% if admin_signed_in? %>
-        <li>
-          <%= link_to "Top", root_path, class: "btn btn-success" %>
-          <%= link_to "ログアウト", destroy_customer_session_path,method: :delete, class: "btn btn-success" %>
-          <%= link_to "顧客一覧画面", admin_customers_path(current_admin.id), class: "btn btn-success" %>
-          
-        </li>
-      <% elsif customer_signed_in? %>
-          <%= link_to "Top", root_path, class: "btn btn-success" %>
-          <%= link_to "おみやげ検索", search_area_souvenirs_path, class: "btn btn-success" %>
-
-          <%= link_to "おみやげ一覧", souvenirs_path, class: "btn btn-success" %>
-
-          <%= link_to "マイページ", customer_path(current_customer.id), class: "btn btn-success"%>
-
-          <%= link_to "お気に入り", customers_favorites_path, class: "btn btn-success" %>
-
-          <%= link_to "おすすめする", new_souvenir_path, class: "btn btn-success" %>
-
-          <%= link_to "ログアウト", destroy_customer_session_path,method: :delete, class: "btn btn-success" %>
-          
-        <div class="search_form">
-          商品検索
-          <%= form_with url: search_genre_souvenirs_path, local: true, method: :get do |f| %>
-          <%= f.text_field :word %>
-          <%= f.select :search, options_for_select([["完全一致","perfect_match"], ["前方一致","forward_match"],  ["後方一致","backward_match"], ["部分一致","partial_match"]]) %>
-          <%= f.submit "検索", class: "btn btn-primary" %>
-          <% end %>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+              <ul class="navbar-nav ml-auto">
+                <% if admin_signed_in? %>
+                  <li class="nav-item">
+                    <%= link_to "Top", root_path, class: "btn btn-success" %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to "ログアウト", destroy_customer_session_path,method: :delete, class: "btn btn-success" %>
+                  </li>
+                  <li>
+                    <%= link_to "顧客一覧画面", admin_customers_path(current_admin.id), class: "btn btn-success" %></a>
+                  </li>
+                <% elsif customer_signed_in? %>
+                  <li class="nav-item">
+                    <%= link_to "Top", root_path, class: "btn btn-success" %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to "おみやげ検索", search_area_souvenirs_path, class: "btn btn-success" %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to "おみやげ一覧", souvenirs_path, class: "btn btn-success" %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to "マイページ", customer_path(current_customer.id), class: "btn btn-success"%>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to "お気に入り", customers_favorites_path, class: "btn btn-success" %>
+                  </li>
+                    <%= link_to "おすすめする", new_souvenir_path, class: "btn btn-success" %>
+                  <li class="nav-item">
+                    <%= link_to "ログアウト", destroy_customer_session_path,method: :delete, class: "btn btn-success" %>
+                  </li>
+                <% else  %>
+                  <%= link_to "Top", root_path, class: "btn btn-success" %>
+                  <%= link_to "新規登録", new_customer_registration_path, class: "btn btn-success" %>
+                  <%= link_to "ログイン", customer_session_path, class: "btn btn-success" %>
+                <% end %>
+              </ul>
+            </div>
+            <div class="search_form">
+              商品検索
+              <%= form_with url: search_genre_souvenirs_path, local: true, method: :get do |f| %>
+                <%= f.text_field :word %>
+                <%= f.select :search, options_for_select([["完全一致","perfect_match"], ["前方一致","forward_match"],  ["後方一致","backward_match"], ["部分一致","partial_match"]]) %>
+                <%= f.submit "検索", class: "btn btn-primary" %>
+              <% end %>
+            </div>
           </div>
-       <% else  %>
-
-          <%= link_to "Top", root_path, class: "btn btn-success" %>
-
-          <%= link_to "新規登録", new_customer_registration_path, class: "btn btn-success" %>
-
-　　　　　<%= link_to "ログイン", customer_session_path, class: "btn btn-success" %>
-
-      <% end %>
-    </header>
+        </nav>
+      </header>
     <%= yield %>
   </body>
 </html>
