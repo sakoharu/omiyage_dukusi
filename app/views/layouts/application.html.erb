@@ -45,24 +45,26 @@
                   <li class="nav-item">
                     <%= link_to "お気に入り", customers_favorites_path, class: "btn btn-success" %>
                   </li>
+                  <li class="nav-item">
                     <%= link_to "おすすめする", new_souvenir_path, class: "btn btn-success" %>
+                  </li>
                   <li class="nav-item">
                     <%= link_to "ログアウト", destroy_customer_session_path,method: :delete, class: "btn btn-success" %>
                   </li>
+                  <div class="search_form">
+                    商品検索
+                      <%= form_with url: search_genre_souvenirs_path, local: true, method: :get do |f| %>
+                        <%= f.text_field :word %>
+                        <%= f.select :search, options_for_select([["完全一致","perfect_match"], ["前方一致","forward_match"],  ["後方一致","backward_match"], ["部分一致","partial_match"]]) %>
+                        <%= f.submit "検索", class: "btn btn-primary" %>
+                      <% end %>
                 <% else  %>
                   <%= link_to "Top", root_path, class: "btn btn-success" %>
                   <%= link_to "新規登録", new_customer_registration_path, class: "btn btn-success" %>
                   <%= link_to "ログイン", customer_session_path, class: "btn btn-success" %>
                 <% end %>
+                </div>
               </ul>
-            </div>
-            <div class="search_form">
-              商品検索
-              <%= form_with url: search_genre_souvenirs_path, local: true, method: :get do |f| %>
-                <%= f.text_field :word %>
-                <%= f.select :search, options_for_select([["完全一致","perfect_match"], ["前方一致","forward_match"],  ["後方一致","backward_match"], ["部分一致","partial_match"]]) %>
-                <%= f.submit "検索", class: "btn btn-primary" %>
-              <% end %>
             </div>
           </div>
         </nav>
