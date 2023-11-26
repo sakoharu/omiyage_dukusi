@@ -22,7 +22,7 @@ admins.each do |admin|
 end
 
 
-prefectures = [
+prefectures = {
   "0": %w(北海道),
   "1": %w(青森県 岩手県 宮城県 秋田県 山形県 福島県),
   "2": %w(新潟県 富山県 石川県 福井県 山梨県 長野県 岐阜県 静岡県 愛知県),
@@ -32,7 +32,7 @@ prefectures = [
   "6": %w(徳島県 香川県 愛媛県 高知県),
   "7": %w(福岡県 佐賀県 長崎県 熊本県 大分県 宮崎県 鹿児島県),
   "8": %w(沖縄県),
-]
+}
 
 prefectures.each do |regions|
   regions.each do |region, names|
