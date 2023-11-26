@@ -10,7 +10,7 @@
             <tb><%= image_tag souvenir.image, size: "400x200" %></tb>
           </div>
           <div>
-            <tb><%= I18n.t("prefectures.#{souvenir.prefecture.id}") %></tb>
+            <tb><%= souvenir.prefecture.name %></tb>
           </div>
           <div>
             <tb> 商品名<%= souvenir.item_name %></tb>

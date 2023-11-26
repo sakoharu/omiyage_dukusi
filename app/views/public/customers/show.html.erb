@@ -15,7 +15,7 @@
     <%= link_to souvenir_path(souvenir.id) do %>
       <div><%= image_tag souvenir.image, size: "400x200" %></div>
     <% end %>
-      <div><%= I18n.t("prefectures.#{souvenir.prefecture.id}") %></div>
+      <div><%= souvenir.prefecture.name %></div>
         <b>商品名</b>
         <%= souvenir.item_name %>
       <div>

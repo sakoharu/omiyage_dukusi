@@ -4,34 +4,13 @@
 <%= form_with model: @souvenir do |f| %>
 
 <h3>都道府県県を選択してください</h3>
- <div>
-  <%= f.collection_radio_buttons(:prefecture_id, Prefecture.where(region: 0), :id, :name) %>
- </div>
- <div>
-  <%= f.collection_radio_buttons(:prefecture_id, Prefecture.where(region: 1), :id, :name, include_hidden: false) %>
- </div>
- <div>
-  <%= f.collection_radio_buttons(:prefecture_id, Prefecture.where(region: 2), :id, :name, include_hidden: false) %>
- </div>
- <div>
-  <%= f.collection_radio_buttons(:prefecture_id, Prefecture.where(region: 3), :id, :name, include_hidden: false) %>
- </div>
- <div>
-  <%= f.collection_radio_buttons(:prefecture_id, Prefecture.where(region: 4), :id, :name, include_hidden: false) %>
- </div>
- <div>
-  <%= f.collection_radio_buttons(:prefecture_id, Prefecture.where(region: 5), :id, :name, include_hidden: false) %>
- </div>
- <div>
-  <%= f.collection_radio_buttons(:prefecture_id, Prefecture.where(region: 6), :id, :name, include_hidden: false) %>
- </div>
- <div>
-  <%= f.collection_radio_buttons(:prefecture_id, Prefecture.where(region: 7), :id, :name, include_hidden: false) %>
- </div>
- <div>
-  <%= f.collection_radio_buttons(:prefecture_id, Prefecture.where(region: 8), :id, :name, include_hidden: false) %>
- </div>
- 
+  <% (0..8).each do |region_id| %>
+    <h5><%= I18n.t("prefectures.region.#{Prefecture.where(region: region_id).first.region}") %></h5>
+      <div>
+        <%= f.collection_radio_buttons(:prefecture_id, Prefecture.where(region: region_id), :id, :name, include_hidden: false) %>
+      </div>
+  <% end %>
+
 
  <h4>商品名</h4>
  <%= f.text_field :item_name %>

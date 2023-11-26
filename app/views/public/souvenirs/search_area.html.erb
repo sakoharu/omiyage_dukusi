@@ -13,7 +13,7 @@
       <%= link_to souvenir_path(souvenir.id) do %>
         <div class="container py-4" id="works"><%= image_tag souvenir.image, size: "400x200" %></div>
       <% end %>
-        <div class="card-text"><%= I18n.t("prefectures.#{souvenir.prefecture.id}") %></div>
+        <div class="card-text"><%= souvenir.prefecture.name %></div>
         <div>
           <b>商品名</b>
           <%= souvenir.item_name %>
@@ -35,7 +35,7 @@
       <% else %>
         <p>
           <%=link_to favorites_path(sourvenir_id: souvenir, search_prefecture_id: params[:prefecture_id]), method: :post do %>
-          ♥<%= souvenir.favorites.count %> 
+          ♥<%= souvenir.favorites.count %>
         </p>
           <% end %>
        <% end %>
@@ -48,3 +48,77 @@
 
   </div>
 </div>
+
+<script>
+// $(document).on('turbolinks:load', function()
+
+  var areas = [
+    {"prefectures" : [1], "name": "北海道", "color": "#7f7eda", "hoverColor": "#b3b2ee","code":<%= @prefectures.find { |pref| pref[1].include?("北海道") }[0] %>},
+    {"prefectures" : [2], "name": "青森", "color": "#759ef4", "hoverColor": "#98b9ff","code":<%= @prefectures.find { |pref| pref[1].include?("青森県") }[0] %>},
+    {"prefectures" : [3], "name": "岩手", "color": "#759ef4", "hoverColor": "#98b9ff","code":<%= @prefectures.find { |pref| pref[1].include?("岩手県") }[0] %>},
+    {"prefectures" : [4], "name": "宮城", "color": "#759ef4", "hoverColor": "#98b9ff","code":<%= @prefectures.find { |pref| pref[1].include?("宮城県") }[0] %>},
+    {"prefectures" : [5], "name": "秋田", "color": "#759ef4", "hoverColor": "#98b9ff","code":<%= @prefectures.find { |pref| pref[1].include?("秋田県") }[0] %>},
+    {"prefectures" : [6], "name": "山形", "color": "#759ef4", "hoverColor": "#98b9ff","code":<%= @prefectures.find { |pref| pref[1].include?("山形県") }[0] %>},
+    {"prefectures" : [7], "name": "福島", "color": "#759ef4", "hoverColor": "#98b9ff","code":<%= @prefectures.find { |pref| pref[1].include?("福島県") }[0] %>},
+    {"prefectures" : [8], "name": "茨城", "color": "#7ecfea", "hoverColor": "#b7e5f4","code":<%= @prefectures.find { |pref| pref[1].include?("茨城県") }[0] %>},
+    {"prefectures" : [9], "name": "栃木", "color": "#7ecfea", "hoverColor": "#b7e5f4","code":<%= @prefectures.find { |pref| pref[1].include?("栃木県") }[0] %>},
+    {"prefectures" : [10], "name": "群馬", "color": "#7ecfea", "hoverColor": "#b7e5f4","code":<%= @prefectures.find { |pref| pref[1].include?("群馬県") }[0] %>},
+    {"prefectures" : [11], "name": "埼玉", "color": "#7ecfea", "hoverColor": "#b7e5f4","code":<%= @prefectures.find { |pref| pref[1].include?("埼玉県") }[0] %>},
+    {"prefectures" : [12], "name": "千葉", "color": "#7ecfea", "hoverColor": "#b7e5f4","code":<%= @prefectures.find { |pref| pref[1].include?("千葉県") }[0] %>},
+    {"prefectures" : [13], "name": "東京", "color": "#7ecfea", "hoverColor": "#b7e5f4","code":<%= @prefectures.find { |pref| pref[1].include?("東京都") }[0] %>},
+    {"prefectures" : [14], "name": "神奈川", "color": "#7ecfea", "hoverColor": "#b7e5f4","code":<%= @prefectures.find { |pref| pref[1].include?("神奈川県") }[0] %>},
+    {"prefectures" : [15], "name": "新潟", "color": "#7cdc92", "hoverColor": "#aceebb","code":<%= @prefectures.find { |pref| pref[1].include?("新潟県") }[0] %>},
+    {"prefectures" : [16], "name": "富山", "color": "#7cdc92", "hoverColor": "#aceebb","code":<%= @prefectures.find { |pref| pref[1].include?("富山県") }[0] %>},
+    {"prefectures" : [17], "name": "石川", "color": "#7cdc92", "hoverColor": "#aceebb","code":<%= @prefectures.find { |pref| pref[1].include?("石川県") }[0] %>},
+    {"prefectures" : [18], "name": "福井", "color": "#7cdc92", "hoverColor": "#aceebb","code":<%= @prefectures.find { |pref| pref[1].include?("福井県") }[0] %>},
+    {"prefectures" : [19], "name": "山梨", "color": "#7cdc92", "hoverColor": "#aceebb","code":<%= @prefectures.find { |pref| pref[1].include?("山梨県") }[0] %>},
+    {"prefectures" : [20], "name": "長野", "color": "#7cdc92", "hoverColor": "#aceebb","code":<%= @prefectures.find { |pref| pref[1].include?("長野県") }[0] %>},
+    {"prefectures" : [21], "name": "岐阜", "color": "#7cdc92", "hoverColor": "#aceebb","code":<%= @prefectures.find { |pref| pref[1].include?("岐阜県") }[0] %>},
+    {"prefectures" : [22], "name": "静岡", "color": "#7cdc92", "hoverColor": "#aceebb","code":<%= @prefectures.find { |pref| pref[1].include?("静岡県") }[0] %>},
+    {"prefectures" : [23], "name": "愛知", "color": "#7cdc92", "hoverColor": "#aceebb","code":<%= @prefectures.find { |pref| pref[1].include?("愛知県") }[0] %>},
+    {"prefectures" : [24], "name": "三重", "color": "#ffe966", "hoverColor": "#fff19c","code":<%= @prefectures.find { |pref| pref[1].include?("三重県") }[0] %>},
+    {"prefectures" : [25], "name": "滋賀", "color": "#ffe966", "hoverColor": "#fff19c","code":<%= @prefectures.find { |pref| pref[1].include?("滋賀県") }[0] %>},
+    {"prefectures" : [26], "name": "京都", "color": "#ffe966", "hoverColor": "#fff19c","code":<%= @prefectures.find { |pref| pref[1].include?("京都府") }[0] %>},
+    {"prefectures" : [27], "name": "大阪", "color": "#ffe966", "hoverColor": "#fff19c","code":<%= @prefectures.find { |pref| pref[1].include?("大阪府") }[0] %>},
+    {"prefectures" : [28], "name": "兵庫", "color": "#ffe966", "hoverColor": "#fff19c","code":<%= @prefectures.find { |pref| pref[1].include?("兵庫県") }[0] %>},
+    {"prefectures" : [29], "name": "奈良", "color": "#ffe966", "hoverColor": "#fff19c","code":<%= @prefectures.find { |pref| pref[1].include?("奈良県") }[0] %>},
+    {"prefectures" : [30], "name": "和歌山", "color": "#ffe966", "hoverColor": "#fff19c","code":<%= @prefectures.find { |pref| pref[1].include?("和歌山県") }[0] %>},
+    {"prefectures" : [31], "name": "鳥取", "color": "#ffcc66", "hoverColor": "#ffe0a3","code":<%= @prefectures.find { |pref| pref[1].include?("鳥取県") }[0] %>},
+    {"prefectures" : [32], "name": "島根", "color": "#ffcc66", "hoverColor": "#ffe0a3","code":<%= @prefectures.find { |pref| pref[1].include?("島根県") }[0] %>},
+    {"prefectures" : [33], "name": "岡山", "color": "#ffcc66", "hoverColor": "#ffe0a3","code":<%= @prefectures.find { |pref| pref[1].include?("岡山県") }[0] %>},
+    {"prefectures" : [34], "name": "広島", "color": "#ffcc66", "hoverColor": "#ffe0a3","code":<%= @prefectures.find { |pref| pref[1].include?("広島県") }[0] %>},
+    {"prefectures" : [35], "name": "山口", "color": "#ffcc66", "hoverColor": "#ffe0a3","code":<%= @prefectures.find { |pref| pref[1].include?("山口県") }[0] %>},
+    {"prefectures" : [36], "name": "徳島", "color": "#fb9466", "hoverColor": "#ffbb9c","code":<%= @prefectures.find { |pref| pref[1].include?("徳島県") }[0] %>},
+    {"prefectures" : [37], "name": "香川", "color": "#fb9466", "hoverColor": "#ffbb9c","code":<%= @prefectures.find { |pref| pref[1].include?("香川県") }[0] %>},
+    {"prefectures" : [38], "name": "愛媛", "color": "#fb9466", "hoverColor": "#ffbb9c","code":<%= @prefectures.find { |pref| pref[1].include?("愛媛県") }[0] %>},
+    {"prefectures" : [39], "name": "高知", "color": "#fb9466", "hoverColor": "#ffbb9c","code":<%= @prefectures.find { |pref| pref[1].include?("高知県") }[0] %>},
+    {"prefectures" : [40], "name": "福岡", "color": "#ff9999", "hoverColor": "#ffbdbd","code":<%= @prefectures.find { |pref| pref[1].include?("福岡県") }[0] %>},
+    {"prefectures" : [41], "name": "佐賀", "color": "#ff9999", "hoverColor": "#ffbdbd","code":<%= @prefectures.find { |pref| pref[1].include?("佐賀県") }[0] %>},
+    {"prefectures" : [42], "name": "長崎", "color": "#ff9999", "hoverColor": "#ffbdbd","code":<%= @prefectures.find { |pref| pref[1].include?("長崎県") }[0] %>},
+    {"prefectures" : [43], "name": "熊本", "color": "#ff9999", "hoverColor": "#ffbdbd","code":<%= @prefectures.find { |pref| pref[1].include?("熊本県") }[0] %>},
+    {"prefectures" : [44], "name": "大分", "color": "#ff9999", "hoverColor": "#ffbdbd","code":<%= @prefectures.find { |pref| pref[1].include?("大分県") }[0] %>},
+    {"prefectures" : [45], "name": "宮崎", "color": "#ff9999", "hoverColor": "#ffbdbd","code":<%= @prefectures.find { |pref| pref[1].include?("宮崎県") }[0] %>},
+    {"prefectures" : [46], "name": "鹿児島", "color": "#ff9999", "hoverColor": "#ffbdbd","code":<%= @prefectures.find { |pref| pref[1].include?("鹿児島県") }[0] %>},
+    {"prefectures" : [47], "name": "沖縄", "color": "#eb98ff", "hoverColor": "#f5c9ff","code":<%= @prefectures.find { |pref| pref[1].include?("沖縄県") }[0] %>},
+  ];
+
+  $("#map-container").japanMap({
+    width:1000,
+      selection: "area",
+      areas: areas,
+      backgroundColor : "#eef8ff",
+      borderLineColor: "#38b48b",
+      borderLineWidth : 0.25,
+      lineColor : "#38b48b",
+      lineWidth: 1,
+      drawsBoxLine: true,
+      showsPrefectureName: true,
+      prefectureNameType: "short",
+      movesIslands : true,
+      fontSize : 11,
+    onSelect : function(data){
+     location.href = location.pathname + "?prefecture_id=" + data.code;
+    }
+  });
+// });
+</script>
